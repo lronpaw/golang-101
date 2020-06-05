@@ -11,8 +11,20 @@ func TestBar(t *testing.T) {
 	}
 }
 
+func TestFoo(t *testing.T) {
+	result := Foo()
+	if result != "foo" {
+		t.Errorf("expecting foo, got %s", result)
+	}
+}
+
 func TestQuz(t *testing.T) {
-	result := Qux("bar")
+	result := Qux("foo")
+	if result != "foo" {
+		t.Errorf("expecting foo, got %s", result)
+	}
+
+	result = Qux("bar")
 	if result != "bar" {
 		t.Errorf("expecting bar, got %s", result)
 	}
